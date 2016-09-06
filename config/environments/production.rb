@@ -79,4 +79,6 @@ Rails.application.configure do
 
   # Secret key base
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
+  config.action_mailer.default_url_options = { host: 'musicm-inion.rhcloud.com' }
 end

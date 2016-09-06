@@ -8,4 +8,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
+
+    #flash
+      = render partial: 'shared/flash', object: flash
     = yield
