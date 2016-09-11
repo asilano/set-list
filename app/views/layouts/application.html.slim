@@ -8,7 +8,10 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-
     #flash
       = render partial: 'shared/flash', object: flash
+
     = yield
+
+    - if current_user
+      p= link_to 'Sign out', destroy_user_session_path, method: :delete

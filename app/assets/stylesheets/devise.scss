@@ -1,0 +1,29 @@
+@import "colours";
+
+.whole-context {
+  display: flex;
+  height: 100%;
+  background: image-url('thumbline.jpg') center center no-repeat, white;
+}
+
+.blocking-form {
+  width: 100%;
+  align-self: center;
+  background: $theme-colour;
+  text-align: center;
+  padding: 5px;
+
+  form {
+    display: inline-block;
+    text-align: left;
+    min-width: 300px;
+  }
+
+  .sizer {
+    display: inline-block;
+  }
+
+  .pull-left {
+    text-align: left;
+  }
+}

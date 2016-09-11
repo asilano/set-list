@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+@import "compass/reset";
+@import "compass/css3/box-sizing";
+@import "compass/utilities/general/clearfix";
+@import "colours";
+@import "sassybuttons";
+
+ * {
+   @include box-sizing(border-box);
+ }
+
+html {
+  line-height: 1.2;
+  height: 100%;
+}
+
+body {
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Cambria, Georgia, serif;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+fieldset {
+  border: 1px solid $theme-offwhite;
+  border-radius: 5px;
+  padding: 10px;
+  padding-top: 0;
+  margin: 5px 0;
+}
+
+button, input[type=button], input[type=submit], a.button {
+  @include sassy-button;
+
+  &.danger {
+    @include sassy-button-gradient('matte', $danger-colour);
+  }
+}
+
+em {
+  font-style: italic;
+}
