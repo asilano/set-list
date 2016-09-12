@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       # Approvable
-      t.boolean :approved
+      t.boolean :approved, default: false
 
       t.timestamps null: false
     end
