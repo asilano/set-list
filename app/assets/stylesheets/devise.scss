@@ -1,11 +1,9 @@
 @import "colours";
 
-.blocking-form {
-  width: 100%;
+.whole-context .content.blocking-form {
+  height: auto;
   align-self: center;
-  background: $theme-colour;
   text-align: center;
-  padding: 5px;
 
   form {
     display: inline-block;

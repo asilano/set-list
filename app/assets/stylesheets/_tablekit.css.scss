@@ -1,0 +1,43 @@
+@import "colours";
+
+table.sortable tr.rowodd {
+  background-color: $theme-colour;
+}
+
+table.sortable tr.roweven {
+  background-color: darken($theme-colour, 10%);
+}
+
+table.sortable th.sortasc,table.sortable td.sortasc {
+  background-color: #448822;
+}
+
+table.sortable th.sortdesc,table.sortable td.sortdesc {
+  background-color: #224488;
+}
+
+.sortcol {
+  cursor: pointer;
+}
+
+.jqTableKitNoneselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  cursor: e-resize;
+}
+
+.resize-handle-active {
+  cursor: e-resize;
+}
+
+div.resize-handle {
+  cursor: e-resize;
+  width: 2px;
+  border-right: 1px dashed #1E90FF;
+  position:absolute;
+  top:0;
+  left:0;
+}

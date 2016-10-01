@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
+  devise_scope :user do
+    get 'users', to: 'users/registrations#index'
+    put 'users/:id/toggle_approved', to: 'users/registrations#toggle_approved', as: 'toggle_user'
+    delete 'users/:id', to: 'users/registrations#destroy_other', as: 'destroy_other_user'
+  end
+
   resources :songs
   root 'songs#index'
   # The priority is based upon order of creation: first created -> highest priority.
