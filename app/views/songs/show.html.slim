@@ -3,6 +3,36 @@ p#notice = notice
 p
   strong Title:
   = @song.title
+p
+  strong Original artist:
+  = @song.original_artist
+p
+  strong Aka:
+  = @song.aka
+p
+  strong Georgie main:
+  = @song.georgie_main
+p
+  strong Chris main:
+  = @song.chris_main
+p
+  strong Backing vocals:
+  = @song.backing_vocals
+p
+  strong Lead guitar:
+  = @song.lead_guitar
+p
+  strong Key:
+  = @song.key
+p
+  strong Genre:
+  = @song.genre
+p
+  strong Speed:
+  = @song.speed
+p
+  strong Notes:
+  = @song.notes
 
 = link_to 'Edit', edit_song_path(@song)
 '|

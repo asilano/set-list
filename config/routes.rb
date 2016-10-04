@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :songs
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   devise_scope :user do
     get 'users', to: 'users/registrations#index'
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
     delete 'users/:id', to: 'users/registrations#destroy_other', as: 'destroy_other_user'
   end
 
-  resources :songs
   root 'songs#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

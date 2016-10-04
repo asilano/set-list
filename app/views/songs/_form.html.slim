@@ -8,5 +8,35 @@
 
   .field
     = f.label :title
-    = f.text_area :title
+    = f.text_field :title
+  .field
+    = f.label :original_artist
+    = f.text_field :original_artist
+  .field
+    = f.label :aka
+    = f.text_field :aka
+  .field
+    = f.label :georgie_main
+    = f.check_box :georgie_main
+  .field
+    = f.label :chris_main
+    = f.check_box :chris_main
+  .field
+    = f.label :backing_vocals
+    = f.check_box :backing_vocals
+  .field
+    = f.label :lead_guitar
+    = f.check_box :lead_guitar
+  .field
+    = f.label :key
+    = f.text_field :key
+  .field
+    = f.label :genre
+    = f.text_field :genre
+  .field
+    = f.label :speed
+    = f.text_field :speed
+  .field
+    = f.label :notes
+    = f.text_area :notes
   .actions = f.submit
