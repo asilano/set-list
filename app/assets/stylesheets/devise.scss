@@ -1,8 +1,7 @@
 @import "colours";
-
-.whole-context .content.blocking-form {
-  height: auto;
-  align-self: center;
+.content.blocking-form {
+  position: absolute;
+  top: 30%;
   text-align: center;
 
   form {

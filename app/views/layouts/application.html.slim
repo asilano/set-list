@@ -10,10 +10,10 @@ html
   body
     #flash
       = render partial: 'shared/flash', object: flash
-    .whole-context
 
-      .content{class=@contentclass}
-        = yield
 
-        - if current_user
-          p= link_to 'Sign out', destroy_user_session_path, method: :delete
+    .content{class=@contentclass}
+      = yield
+
+      - if current_user
+        p= link_to 'Sign out', destroy_user_session_path, method: :delete
