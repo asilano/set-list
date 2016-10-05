@@ -1,5 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
+  # Can't do anything unless signed in
+  before_filter -> { authenticate_user! force: true }
+
   def index
     if params[:approval] == '1'
       @users = User.where{ approved == false }.all
