@@ -41,7 +41,7 @@ body {
 .content {
   width: 100%;
   background: rgba($theme-colour, 0.95);
-  padding: 5px;
+  padding: 5px 20px;
   flex: 1 0 auto;
 }
 
@@ -64,6 +64,33 @@ body {
       border-color: $notice-colour;
       color: black;
       background-color: lighten($notice-colour, 40%);
+    }
+  }
+}
+
+nav.tabs {
+  margin: -5px 0 1em -20px;
+
+  .tab {
+    display: inline-block;
+    padding: 5px;
+    border: 2px solid black;
+    border-width: 0 2px 2px 0;
+    &:first-child {
+      padding-left: 20px;
+    }
+
+    color: $theme-offwhite;
+    text-decoration: none;
+    background-color: rgba(darken($theme-colour, 5%), 0.95);
+
+    &.current {
+      background-color: inherit;
+      border-bottom-color: transparent;
+    }
+
+    &:not(.current):hover {
+      background-color: $theme-highlight;
     }
   }
 }
