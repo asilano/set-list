@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :songs
+  resources :songs, except: :show
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   devise_scope :user do
     get 'users', to: 'users/registrations#index'

@@ -14,7 +14,6 @@ table
       th Notes
       th
       th
-      th
 
   tbody
     - @songs.each do |song|
@@ -30,6 +29,5 @@ table
         td = song.genre
         td = song.speed
         td = song.notes
-        td = link_to 'Show', song
         td = link_to 'Edit', edit_song_path(song)
         td = link_to 'Destroy', song, data: { confirm: 'Are you sure?' }, method: :delete
