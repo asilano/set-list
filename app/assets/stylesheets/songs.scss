@@ -1,3 +1,81 @@
 // Place all the styles related to the songs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colours';
+
+.song {
+  display: flex;
+  flex-flow: row wrap;
+  border: 2px solid black;
+  margin-bottom: 2em;
+
+  > div {
+    font-size: 1.3em;
+  }
+  .info {
+    padding: 5px;
+  }
+
+  .info.title {
+    flex: 0 0 100%;
+    padding: 5px;
+    font-size: 2em;
+    background-color: white;
+    color: $theme-offblack;
+    border-bottom: 1px solid black;
+
+    display: flex;
+    flex-flow: row nowrap;
+
+    .data {
+      flex: 0 1 100%;
+    }
+    .actions {
+      flex: 0 0 auto;
+    }
+  }
+
+  .info-row {
+    flex: 0 1 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom: 1px solid black;
+
+    > div {
+      flex: 0 1 100%;
+    }
+    div:not(:first-child) {
+      border-left: 1px solid black;
+    }
+  }
+
+  .singers.chris {
+    background-color: $chris-blue;
+  }
+  .singers.georgie {
+    background-color: $georgie-red;
+  }
+  .singers.chris.georgie {
+    background: linear-gradient(to right, $georgie-red, $georgie-red 20%, $chris-blue 80%, $chris-blue);
+  }
+  .bv {
+    background-color: $bv-green;
+  }
+  .guitar {
+    background-color: $guitar-black;
+  }
+
+  .notes {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .fieldname {
+      flex: 0 0 auto;
+    }
+
+    .data {
+      flex: 0 1 auto;
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.song[id=song.id]
+  .info.title
+    span.data= song.title
+    span.actions
+      = link_to(content_tag(:span, '', :class => 'icon-pencil', 'aria-hidden' => true), edit_song_path(song), :class => 'only-icon')
+      = link_to(content_tag(:span, '', :class => 'icon-remove', 'aria-hidden' => true), song, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'only-icon')
+  .info-row
+    .info.artist
+      span.fieldname> By:
+      span.data= song.original_artist
+    - if song.aka.present?
+      .info.aka
+        span.fieldname> Also known as:
+        span.data= song.aka
+  .info-row
+    - singers = [song.georgie_main && 'Georgie', song.chris_main && 'Chris'].select{|x|x}
+    .info.singers[class=singers.join(' ').downcase]
+      - if song.georgie_main || song.chris_main
+        span.fieldname> Sung by:
+        span.data= singers.join ' & '
+      - else
+        | Instrumental
+    - if song.backing_vocals
+      .info.bv Backing Vocals
+    - if song.lead_guitar
+      .info.guitar Lead Guitar
+  .info-row
+    - if song.key.present?
+      .info.key
+        span.fieldname> Key:
+        span.data= song.key
+    - if song.genre.present?
+      .info.genre
+        span.fieldname> Genre:
+        span.data= song.genre
+    - if song.speed.present?
+      .info.speed
+        span.fieldname> Speed:
+        span.data= song.speed
+  - if song.notes.present?
+    .info.notes
+      span.fieldname> Notes:
+      span.data= song.notes

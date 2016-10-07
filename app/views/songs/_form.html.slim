@@ -6,7 +6,7 @@
         - @song.errors.full_messages.each do |message|
           li = message
 
-  fieldset
+  fieldset.song
     legend= params[:action].capitalize + ' song'
     .field
       = f.label :title

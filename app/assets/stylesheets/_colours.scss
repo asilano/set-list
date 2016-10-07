@@ -1,10 +1,17 @@
 $theme-colour: #608bd1;
 $theme-highlight: #ff6501;
 $theme-offwhite: #ddd;
+$theme-offblack: #222;
+$theme-grey: #555;
 
 $danger-colour: #d22;
 $notice-colour: #22d;
 $ok-colour: #2d2;
 
-$icon-grey: #444;
-$icon-black: #222;
+$icon-grey: $theme-grey;
+$icon-black: $theme-offblack;
+
+$chris-blue: desaturate(blue, 50%);
+$georgie-red: desaturate(red, 50%);
+$bv-green: desaturate(green, 50%);
+$guitar-black: $theme-grey;
