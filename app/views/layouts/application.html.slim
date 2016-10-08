@@ -8,8 +8,9 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    aside#flash
-      = render partial: 'shared/flash', object: flash
+    - if flash.present?
+      aside#flash
+        = render partial: 'shared/flash', object: flash
 
 
     section.content{class=@contentclass}

@@ -1,1 +1,12 @@
+- letters = ['numbers'] + ('a'..'z').to_a
 = render partial: 'song', collection: @songs
+
+section#songs
+  - letters.each do |letter|
+    a.anchor[id=letter]
+    = content_for "letter_#{letter}".to_sym
+
+nav.letters
+  a[href="#numbers"] #
+  - letters[1..-1].each do |letter|
+    a[href="##{letter}"]= letter.upcase

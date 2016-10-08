@@ -3,11 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'colours';
 
+#songs {
+  margin-right: 3.5em;
+
+  a.anchor:before {
+      display: block;
+      content: " ";
+      margin-top: -2.5em; // Set the Appropriate Height
+      height: 2.5em; // Set the Appropriate Height
+      visibility: hidden;
+  }
+}
+
 .song {
   display: flex;
   flex-flow: row wrap;
   border: 2px solid black;
   margin-bottom: 2em;
+  font-family: Georgia, Times, 'Times New Roman', serif;
 
   > div {
     font-size: 1.3em;
