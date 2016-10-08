@@ -50,8 +50,7 @@ body {
 }
 
 #flash {
-  width: 90%;
-  margin: 5px 5%;
+  margin: 5px calc(3.5em + 5px) 5px 5px;
   flex: 0 1 auto;
 
   p {
