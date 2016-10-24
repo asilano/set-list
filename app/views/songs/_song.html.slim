@@ -1,7 +1,8 @@
 - letter = song.title.first.downcase
 - letter = 'numbers' unless ('a'..'z').include?(letter)
 - content_for "letter_#{letter}".to_sym do
-  .song[id=song.id]
+  a.anchor[id=song.id]
+  .song
     .info.title
       span.data= song.title
       span.actions
