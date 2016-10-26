@@ -139,6 +139,10 @@ a {
   }
 }
 
+.checkbox-hack {
+  display: none;
+}
+
 fieldset {
   border: 1px solid $theme-offwhite;
   border-radius: 5px;
@@ -152,6 +156,37 @@ fieldset {
   }
 
   &.song {
+    max-width: none;
+
+    .columns {
+      display: flex;
+    }
+
+    .column {
+      flex: 0 1 50%;
+      &:not(:first-child) {
+        margin-left: 10px;
+      }
+
+      &.full-height-field {
+        display: flex;
+        flex-flow: column;
+
+        .field {
+          display: flex;
+          flex-flow: column;
+          flex: 0 1 100%;
+
+          label {
+            flex: 0 0 auto;
+          }
+          :not(label) {
+            flex: 0 1 100%;
+          }
+        }
+      }
+    }
+
     .field {
       padding: 5px 0;
 

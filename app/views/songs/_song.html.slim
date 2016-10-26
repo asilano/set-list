@@ -45,3 +45,9 @@
       .info.notes
         span.fieldname> Notes:
         span.data= song.notes
+    - if song.lyrics.present?
+      .info.lyrics
+        input.checkbox-hack[type='checkbox' id="lyric_check_#{song.id}"]
+        label.hack-label[for="lyric_check_#{song.id}"]
+        span.fieldname> Lyrics:
+        span.data= song.lyrics

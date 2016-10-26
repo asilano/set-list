@@ -8,40 +8,46 @@
 
   fieldset.song
     legend= params[:action].capitalize + ' song'
-    .field
-      = f.label :title
-      = f.text_field :title
-    .field.indent
-      = f.label :aka, "Alternative Title"
-      = f.text_field :aka
-    .field
-      = f.label :original_artist
-      = f.text_field :original_artist
-    .group
-      | Vocals / Instrumentation
-      .checkboxen
-        .checkbox
-          = f.check_box :georgie_main
-          = f.label :georgie_main
-        .checkbox
-          = f.check_box :chris_main
-          = f.label :chris_main
-        .checkbox
-          = f.check_box :backing_vocals
-          = f.label :backing_vocals
-        .checkbox
-          = f.check_box :lead_guitar
-          = f.label :lead_guitar
-    .field
-      = f.label :key
-      = f.text_field :key
-    .field
-      = f.label :genre
-      = f.text_field :genre
-    .field
-      = f.label :speed
-      = f.text_field :speed
-    .field
-      = f.label :notes
-      = f.text_area :notes
+    .columns
+      .column
+        .field
+          = f.label :title
+          = f.text_field :title
+        .field.indent
+          = f.label :aka, "Alternative Title"
+          = f.text_field :aka
+        .field
+          = f.label :original_artist
+          = f.text_field :original_artist
+        .group
+          | Vocals / Instrumentation
+          .checkboxen
+            .checkbox
+              = f.check_box :georgie_main
+              = f.label :georgie_main
+            .checkbox
+              = f.check_box :chris_main
+              = f.label :chris_main
+            .checkbox
+              = f.check_box :backing_vocals
+              = f.label :backing_vocals
+            .checkbox
+              = f.check_box :lead_guitar
+              = f.label :lead_guitar
+        .field
+          = f.label :key
+          = f.text_field :key
+        .field
+          = f.label :genre
+          = f.text_field :genre
+        .field
+          = f.label :speed
+          = f.text_field :speed
+        .field
+          = f.label :notes
+          = f.text_area :notes
+      .column.full-height-field
+        .field
+          = f.label :lyrics
+          = f.text_area :lyrics
     .actions = f.submit

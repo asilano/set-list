@@ -13,6 +13,10 @@
       height: 2.5em; // Set the Appropriate Height
       visibility: hidden;
   }
+
+  .song {
+    max-width: 1000px;
+  }
 }
 
 .song {
@@ -78,7 +82,8 @@
     background-color: $guitar-black;
   }
 
-  .notes {
+  .notes, .lyrics {
+    flex: 0 1 100%;
     display: flex;
     flex-flow: row nowrap;
 
@@ -89,6 +94,31 @@
     .data {
       flex: 0 1 auto;
       margin-left: 5px;
+    }
+  }
+
+  .lyrics {
+    position: relative;
+    z-index: 1;
+
+    .data {
+      white-space: pre;
+      font-size: 0.8em;
+      max-height: 6em;
+      overflow: hidden;
+    }
+
+    .hack-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+
+    .checkbox-hack:checked ~ .data {
+      max-height: none;
     }
   }
 }
