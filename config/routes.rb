@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gigs, except: :show
   resources :songs, except: :show
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   devise_scope :user do

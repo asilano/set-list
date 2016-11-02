@@ -1,0 +1,10 @@
+#gigs
+  h1 Future Gigs
+  ul.gigs
+    - @gigs.where { date >= Date.today }.order(:date).each do |gig|
+      li= link_to(gig.name + " (#{gig.date.strftime("%a, #{gig.date.day.ordinalize} %B %Y")})", edit_gig_path(gig))
+
+  h1 Past Gigs
+  ul.gigs
+    - @gigs.where { date < Date.today }.order { date.desc }.each do |gig|
+      li= link_to(gig.name + " (#{gig.date.strftime("%a, #{gig.date.day.ordinalize} %B %Y")})", edit_gig_path(gig))

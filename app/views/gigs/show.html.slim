@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @gig.name
+p
+  strong Date:
+  = @gig.date
+
+= link_to 'Edit', edit_gig_path(@gig)
+'|
+= link_to 'Back', gigs_path

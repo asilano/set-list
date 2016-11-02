@@ -155,7 +155,7 @@ fieldset {
     margin-bottom: 10px;
   }
 
-  &.song {
+  &.song, &.gig {
     max-width: none;
 
     .columns {
@@ -232,6 +232,10 @@ fieldset {
       }
     }
   }
+
+  .actions :not(:first-child) {
+    margin-left: 0.5em;
+  }
 }
 
 button, input[type=button], input[type=submit], a.button {
@@ -240,6 +244,10 @@ button, input[type=button], input[type=submit], a.button {
   &.danger {
     @include sassy-button-gradient('matte', $danger-colour);
   }
+}
+
+input.new-date {
+  display: none;
 }
 
 em {

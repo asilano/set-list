@@ -21,6 +21,11 @@ $sb-ie-support: true;
 @mixin sassy-button-default-structure {
   display: inline-block;
   cursor: pointer;
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
 }
 
 //  *    Mixin reference

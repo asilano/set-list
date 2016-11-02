@@ -1,0 +1,28 @@
+// Place all the styles related to the Gigs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#gigs h1 {
+  font-size: 2em;
+}
+
+ul.gigs {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.2em;
+  margin: 0 0 1.8em 1.8em;
+  a {
+    text-decoration: none;
+  }
+}
+
+fieldset.gig {
+  display: flex;
+  flex-flow: row wrap;
+  border: 2px solid black;
+  margin-bottom: 2em;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+
+  > div {
+    font-size: 1.3em;
+  }
+}

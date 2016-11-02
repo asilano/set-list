@@ -50,4 +50,7 @@
         .field
           = f.label :lyrics
           = f.text_area :lyrics
-    .actions = f.submit
+    .actions
+      = f.submit
+      - if params[:action] == 'edit'
+        button.danger= link_to 'Delete song', @song, method: :delete, data: {confirm: "Are you sure?"}
