@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101123559) do
+ActiveRecord::Schema.define(version: 20161103161330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20161101123559) do
     t.integer "set_list_id", null: false
     t.integer "order"
   end
+
+  create_table "gig_sets", force: :cascade do |t|
+    t.integer  "number"
+    t.integer  "gig_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "gig_sets", ["gig_id"], name: "index_gig_sets_on_gig_id", using: :btree
 
   create_table "gigs", force: :cascade do |t|
     t.string   "name"
@@ -60,4 +69,5 @@ ActiveRecord::Schema.define(version: 20161101123559) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "gig_sets", "gigs"
 end

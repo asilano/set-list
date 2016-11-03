@@ -1,1 +1,7 @@
 == render 'form'
+
+= render partial: 'gig_sets/gig_set', collection: @gig.gig_sets
+
+= form_for @gig.gig_sets.build do |f|
+  = f.hidden_field :gig_id, value: @gig.id
+  = f.submit 'Add another set'

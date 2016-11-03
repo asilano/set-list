@@ -1,0 +1,4 @@
+= form_for gig_set do |f|
+  fieldset.gig_set
+    legend Set #{gig_set.number}
+    button.danger= link_to 'Delete set', gig_set, method: :delete, data: {confirm: "Are you sure?"}

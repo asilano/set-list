@@ -19,10 +19,20 @@ fieldset.gig {
   display: flex;
   flex-flow: row wrap;
   border: 2px solid black;
-  margin-bottom: 2em;
-  font-family: Georgia, Times, 'Times New Roman', serif;
+  margin-bottom: 16px;
 
   > div {
     font-size: 1.3em;
+  }
+}
+
+fieldset.gig_set {
+  border: 2px solid black;
+  margin-bottom: 16px;
+  max-width: 800px;
+
+  legend {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5em;
   }
 }
