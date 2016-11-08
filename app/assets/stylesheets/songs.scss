@@ -66,15 +66,10 @@
     }
   }
 
-  .singers.chris {
-    background-color: $chris-blue;
+  .singers {
+    @include singer-grads;
   }
-  .singers.georgie {
-    background-color: $georgie-red;
-  }
-  .singers.chris.georgie {
-    background: linear-gradient(to right, $georgie-red, $georgie-red 20%, $chris-blue 80%, $chris-blue);
-  }
+
   .bv {
     background-color: $bv-green;
   }

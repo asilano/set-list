@@ -1,4 +1,5 @@
 @import "colours";
+@import "icon_variables";
 
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
@@ -14,31 +15,35 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-caret-down:before {
-  content: "\f0d7";
+.icon-pencil {
+  &:before {
+    content: $icon-pencil;
+  }
 }
-.icon-caret-right:before {
-  content: "\f0da";
+.icon-remove {
+  &:before {
+    content: $icon-remove;
+  }
 }
-.icon-envelope:before {
-  content: "\e605";
+.icon-cross {
+  &:before {
+    content: $icon-cross;
+  }
 }
-.icon-pencil:before {
-  content: "\e600";
+.icon-checkmark {
+  &:before {
+    content: $icon-checkmark;
+  }
 }
-.icon-remove:before {
-  content: "\e601";
+.icon-arrow-up2 {
+  &:before {
+    content: $icon-arrow-up2;
+  }
 }
-.icon-eye:before {
-  content: "\e602";
-}
-.icon-cross:before {
-  content: "\e603";
-  color: $danger-colour;
-}
-.icon-checkmark:before {
-  content: "\e604";
-  color: $ok-colour;
+.icon-arrow-down2 {
+  &:before {
+    content: $icon-arrow-down2;
+  }
 }
 
 a.only-icon {

@@ -1,4 +1,30 @@
-= form_for gig_set do |f|
-  fieldset.gig_set
-    legend Set #{gig_set.number}
-    button.danger= link_to 'Delete set', gig_set, method: :delete, data: {confirm: "Are you sure?"}
+fieldset.gig_set
+  legend Set #{gig_set.number}
+  button.danger= link_to 'Delete set', gig_set, method: :delete, data: {confirm: "Are you sure?"}
+  .song-choices
+    h1 All songs
+    h1 Songs in set
+    = form_for(SongInstance.new, html: {class: 'all-songs-wrapper'}) do |f|
+      = f.hidden_field :gig_set_id, value: gig_set.id
+      .all-songs
+        - Song.by_title.each do |song|
+          .song-inst-wrapper
+            = f.radio_button :song_id, song.id, id: "set_#{gig_set.id}_songid_#{song.id}"
+            - singers = [song.georgie_main && 'Georgie', song.chris_main && 'Chris'].select{|x|x}
+            = f.label(:song_id, song.title, for: "set_#{gig_set.id}_songid_#{song.id}", class: "song-inst #{singers.join(' ').downcase}")
+      = f.submit '→', data: {disable_with: '→'}
+    - if gig_set.song_instances.empty?
+      .set-songs You haven't got any songs in this set yet!
+    - else
+      = form_tag(song_instances_path, method: :delete, class: 'set-songs') do
+        - count = gig_set.song_instances.count
+        - gig_set.song_instances.each.with_index do |song_inst, ix|
+          .song-inst-wrapper
+            - song = song_inst.song
+            = radio_button_tag :id, song_inst.id, false, id: "id_#{song_inst.id}"
+            - singers = [song.georgie_main && 'Georgie', song.chris_main && 'Chris'].select{|x|x}
+            = label_tag("id_#{song_inst.id}", song.title, class: "song-inst #{singers.join(' ').downcase}")
+            span.movers
+              = link_to(content_tag(:span, '', :class => 'icon-arrow-up2', 'aria-hidden' => true), move_up_song_instance_path(song_inst), :class => "only-icon#{' hidden' if ix == 0}", method: :put)
+              = link_to(content_tag(:span, '', :class => 'icon-arrow-down2', 'aria-hidden' => true), move_down_song_instance_path(song_inst), :class => "only-icon#{' hidden' if ix == count - 1}", method: :put)
+        = submit_tag '←', data: {disable_with: '←'}

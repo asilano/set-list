@@ -15,3 +15,15 @@ $chris-blue: desaturate(blue, 50%);
 $georgie-red: desaturate(red, 50%);
 $bv-green: desaturate(green, 50%);
 $guitar-black: $theme-grey;
+
+@mixin singer-grads {
+  &.chris {
+    background-color: $chris-blue;
+  }
+  &.georgie {
+    background-color: $georgie-red;
+  }
+  &.chris.georgie {
+    background: linear-gradient(to right, $georgie-red, $georgie-red 20%, $chris-blue 80%, $chris-blue);
+  }
+}

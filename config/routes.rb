@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :song_instances, only: [:create, :update] do
+    delete :index, on: :collection, action: :destroy
+    put :move_up, on: :member, action: :move_up
+    put :move_down, on: :member, action: :move_down
+  end
   resources :gig_sets, only: [:create, :update, :destroy]
   resources :gigs, except: :show
   resources :songs, except: :show

@@ -1,6 +1,7 @@
 // Place all the styles related to the Gigs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colours";
 
 #gigs h1 {
   font-size: 2em;
@@ -34,5 +35,87 @@ fieldset.gig_set {
   legend {
     font-family: Georgia, Times, 'Times New Roman', serif;
     font-size: 1.5em;
+  }
+}
+
+.song-choices {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 5px;
+
+  .all-songs-wrapper, .set-songs {
+    flex: 1 0 40%;
+    margin: 0 5px;
+  }
+
+  .set-songs {
+    min-height: 20em;
+  }
+
+  h1 {
+    flex: 0 0 50%;
+    text-align: center;
+    font-size: 1.2em;
+  }
+}
+
+.all-songs-wrapper {
+  position: relative;
+
+  .all-songs {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 3em;
+    overflow-y: scroll;
+  }
+
+  input[type=submit] {
+    position: absolute;
+    right: 0;
+    bottom: calc(50% + 0.5em);
+  }
+}
+
+.set-songs {
+  position: relative;
+
+  input[type=submit] {
+    position: absolute;
+    left: -44px;
+    top: calc(50% + 0.5em);
+  }
+
+  .movers {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.set-songs, .all-songs {
+  .song-inst {
+    @include singer-grads;
+    &:not(.georgie):not(.chris) {
+      background-color: $bv-green;
+    }
+
+    padding: 2px;
+  }
+
+  input[type=radio] {
+    display: none;
+  }
+
+  .song-inst-wrapper {
+    display: flex;
+
+    .song-inst {
+      flex: 0 1 100%;
+    }
+  }
+
+  input[type=radio]:checked + label {
+    border: 2px black inset;
   }
 }

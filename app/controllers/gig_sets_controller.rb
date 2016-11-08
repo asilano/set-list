@@ -1,6 +1,9 @@
 class GigSetsController < ApplicationController
   before_action :set_gig_set, only: [:edit, :update, :destroy]
 
+  # Can't do anything unless signed in
+  before_filter :authenticate_user!
+
   # POST /gig_sets
   # POST /gig_sets.json
   def create

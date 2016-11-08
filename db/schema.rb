@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103161330) do
+ActiveRecord::Schema.define(version: 20161104162337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 20161103161330) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "song_instances", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "gig_set_id"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "song_instances", ["gig_set_id"], name: "index_song_instances_on_gig_set_id", using: :btree
+  add_index "song_instances", ["song_id"], name: "index_song_instances_on_song_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "title"
@@ -70,4 +81,6 @@ ActiveRecord::Schema.define(version: 20161103161330) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "gig_sets", "gigs"
+  add_foreign_key "song_instances", "gig_sets"
+  add_foreign_key "song_instances", "songs"
 end

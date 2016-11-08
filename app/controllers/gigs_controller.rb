@@ -1,6 +1,9 @@
 class GigsController < ApplicationController
   before_action :set_gig, only: [:edit, :update, :destroy]
 
+  # Can't do anything unless signed in
+  before_filter :authenticate_user!
+
   # GET /gigs
   # GET /gigs.json
   def index
