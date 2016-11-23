@@ -1,5 +1,6 @@
 class SongInstancesController < ApplicationController
   before_action :set_song_instance, only: [:edit, :update, :destroy, :move_up, :move_down]
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_not_found
 
   # Can't do anything unless signed in
   before_filter :authenticate_user!
@@ -99,14 +100,19 @@ class SongInstancesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_song_instance
-      @song_instance = SongInstance.find(params[:id])
-    end
+protected
+  def rescue_from_not_found
+    redirect_to :back
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def song_instance_params
-      params.require(:song_instance).permit(:order, :song_id, :gig_set_id)
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_song_instance
+    @song_instance = SongInstance.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def song_instance_params
+    params.require(:song_instance).permit(:order, :song_id, :gig_set_id)
+  end
 end

@@ -1,5 +1,5 @@
 class Gig < ActiveRecord::Base
-  has_many :gig_sets
+  has_many :gig_sets, dependent: :destroy
 
   before_create :add_two_sets
 

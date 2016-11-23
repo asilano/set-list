@@ -8,7 +8,7 @@ class GigSetsController < ApplicationController
   # POST /gig_sets.json
   def create
     @gig_set = GigSet.new(gig_set_params)
-    @gig_set.number = @gig_set.gig.gig_sets.map(&:number).compact.max + 1
+    @gig_set.number = (@gig_set.gig.gig_sets.map(&:number).compact.max || 0) + 1
 
     respond_to do |format|
       if @gig_set.save
