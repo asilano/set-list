@@ -9,7 +9,7 @@ fieldset.gig_set
       .all-songs
         - Song.by_title.each do |song|
           .song-inst-wrapper
-            = f.radio_button :song_id, song.id, id: "set_#{gig_set.id}_songid_#{song.id}"
+            = f.radio_button :song_id, song.id, id: "set_#{gig_set.id}_songid_#{song.id}", required: true
             - singers = [song.georgie_main && 'Georgie', song.chris_main && 'Chris'].select{|x|x}
             = f.label(:song_id, song.title, for: "set_#{gig_set.id}_songid_#{song.id}", class: "song-inst #{singers.join(' ').downcase}")
       = f.submit '→', data: {disable_with: '→'}
@@ -21,7 +21,7 @@ fieldset.gig_set
         - gig_set.song_instances.each.with_index do |song_inst, ix|
           .song-inst-wrapper
             - song = song_inst.song
-            = radio_button_tag :id, song_inst.id, false, id: "id_#{song_inst.id}"
+            = radio_button_tag :id, song_inst.id, false, id: "id_#{song_inst.id}", required: true
             - singers = [song.georgie_main && 'Georgie', song.chris_main && 'Chris'].select{|x|x}
             = label_tag("id_#{song_inst.id}", song.title, class: "song-inst #{singers.join(' ').downcase}")
             span.movers
